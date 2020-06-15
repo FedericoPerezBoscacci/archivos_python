@@ -23,6 +23,27 @@ def ej1():
     # Ejercicios con archivos txt
     cantidad_lineas = 0
 
+   
+    def contar_lineas(archivo):
+        
+        from io import open
+
+        lineas_texto = open (archivo,"r")
+
+        lineas = lineas_texto.readlines()      ##convierto a una lista lo que se encuentra en "notas.txt"
+
+        cantidad_lineas = len(lineas)      ## cuento la cantidad de lineas 
+    
+        #print ("La cantidad de lineas que tiene el archivo es : {} ".format (cantidad_lineas))
+
+        return (cantidad_lineas)  # Devuelvo el resultado
+
+
+    cantidad_lineas = contar_lineas("notas.txt") # Llamo a la funcion y le asigno el archivo que deseo que cuente las lineas
+
+    print ("La cantidad de lineas que tiene el archivo es : {} ".format (cantidad_lineas))
+
+
     '''
     Realizar un prorgrama que cuenta la cantidad de líneas
     de un archivo. Abra el archivo "notas.txt" en modo "lectura",

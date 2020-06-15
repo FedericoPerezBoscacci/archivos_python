@@ -26,7 +26,7 @@ def ej1():
    
     def contar_lineas(archivo):
         
-        from io import open
+        
 
         lineas_texto = open (archivo,"r")
 
@@ -35,7 +35,9 @@ def ej1():
         cantidad_lineas = len(lineas)      ## cuento la cantidad de lineas 
     
         #print ("La cantidad de lineas que tiene el archivo es : {} ".format (cantidad_lineas))
-
+        
+        lineas_texto.close()  # Cierro el archivo
+        
         return (cantidad_lineas)  # Devuelvo el resultado
 
 
@@ -80,6 +82,44 @@ def ej2():
     # fo = open(.......)
 
     # Recuerde cerrar los archivos al final ;)
+    
+
+    fi = open ("notas.txt","r")    #archivo abierto para lectura
+    fo = open ("copia_notas.txt","w")
+
+    lineas = fi.read() # asigno las lineas del archivo a una lista
+    
+    fo.write(lineas)
+
+    fi.close()
+    fo.close()
+
+    def contar_lineas(archivo):
+        
+        
+
+        lineas_texto = open (archivo,"r")
+
+        lineas = lineas_texto.readlines()      ##convierto a una lista lo que se encuentra en "notas.txt"
+
+        cantidad_lineas = len(lineas)      ## cuento la cantidad de lineas 
+    
+        #print ("La cantidad de lineas que tiene el archivo es : {} ".format (cantidad_lineas))
+        
+        lineas_texto.close()  # Cierro el archivo
+        
+        return (cantidad_lineas)  # Devuelvo el resultado
+
+
+    cantidad_lineas = contar_lineas("copia_notas.txt") # Llamo a la funcion y le asigno el archivo que deseo que cuente las lineas
+
+    print ("La cantidad de lineas que tiene el archivo es : {} ".format (cantidad_lineas))
+
+    
+    
+
+
+
 
 
 def ej3():
@@ -165,8 +205,8 @@ def ej5():
 
 if __name__ == '__main__':
     print("Bienvenidos a otra clase de Inove con Python")
-    ej1()
-    #ej2()
+    #ej1()
+    ej2()
     #ej3()
     #ej4()
     #ej5()

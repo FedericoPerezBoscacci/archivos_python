@@ -134,6 +134,44 @@ def ej3():
     '''
 
 
+    #fi = open ("propiedades","r")
+    
+    with open ("propiedades.csv") as fi:
+        data = list (csv.DictReader(fi))
+
+    depto_2 = 0
+    depto_3 = 0
+    
+    cantidad = len(data)
+   
+    for i in range(0,cantidad):
+
+        row = data [i]
+        
+        ambiente = row.get("ambientes")
+        
+        if ambiente == "2":
+           
+            depto_2 += 1
+        
+        elif ambiente == "3":
+
+            depto_3 += 1
+
+    
+        continue
+    
+
+    print("Hay {} departamentos de 2 ambientes, y hay {} cantidad de departamentos de 3 ambientes".format(depto_2,depto_3))
+        
+    
+            
+        
+
+
+
+    
+
 def ej4():
     # Ejercicios con diccionarios
     inventario = {'manzanas': 6}
@@ -206,7 +244,7 @@ def ej5():
 if __name__ == '__main__':
     print("Bienvenidos a otra clase de Inove con Python")
     #ej1()
-    ej2()
-    #ej3()
+    #ej2()
+    ej3()
     #ej4()
     #ej5()

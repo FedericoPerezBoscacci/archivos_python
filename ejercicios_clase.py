@@ -165,12 +165,6 @@ def ej3():
     print("Hay {} departamentos de 2 ambientes, y hay {} cantidad de departamentos de 3 ambientes".format(depto_2,depto_3))
         
     
-            
-        
-
-
-
-    
 
 def ej4():
     # Ejercicios con diccionarios
@@ -205,10 +199,45 @@ def ej4():
     # Ingresar por consola la fruta que desea conocer en stock
     # Finalizar cuando la fruta ingresada sea igual a "FIN"
 
+    fin = 0
+    while fin != "fin":
+
+        print("Ingrese fruta:")
+        fruta = str(input())
+        print("Ingrese cantidad")
+        cantidad = int(input())
+
+        inventario[fruta] = cantidad
+        print("Si termino de agregar frutas escriba: fin ")
+        fin = str(input())
+        
+        continue
+
+    fin = 0
+
+    while fin != "fin":
+
+
+        print("Ingrese nombre de la fruta para conocer la cantidad en stock: ")
+        opcion = str(input())
+
+        resultado = inventario[opcion]
+
+        print(" {} de cantidad en stock".format(resultado))
+
+        print("Si desea seguir buscando tocar cualquier letra o para terminar escribir: fin")
+        fin = str(input())
+
+        continue
+    
+
+    
+
+
 
 def ej5():
     # Ejercicios con archivos CSV
-    inventario = {}
+    
 
     '''
     Basado en el ejercicio anterior, genere un archivo CSV
@@ -241,10 +270,60 @@ def ej5():
     # writer.writerow({'Fruta Verdura': ....., 'Cantidad': ....})
 
 
+    inventario = {}
+
+    fi = open ("ejercicio5.csv","w")
+
+
+    fin = 0
+    while fin != "fin":
+
+        print("Ingrese fruta:")
+        fruta = str(input())
+        print("Ingrese cantidad")
+        cantidad = str(input())
+
+        inventario[fruta] = cantidad
+        print("Si termino de agregar frutas escriba: fin ")
+        fin = str(input())
+        
+        continue
+
+    
+    header = ["Frutas" , "cantides" ] # asigno las columnas en una lista
+    
+    encabezados = csv.DictWriter(fi, fieldnames= header  )  # " creando el escritor" aun no escribi nada
+   
+    encabezados.writeheader()
+    
+    for k in inventario.keys():
+        
+        frutas = k
+        cantidades = inventario[k]
+
+        fi.write(frutas)  # escribo en el programa las lineas
+        fi.write(cantidades)
+
+    fi.close()
+
+
+        
+        
+        
+
+
+
+
+
+
+
+
+
+
 if __name__ == '__main__':
     print("Bienvenidos a otra clase de Inove con Python")
     #ej1()
     #ej2()
-    ej3()
+    #ej3()
     #ej4()
-    #ej5()
+    ej5()
